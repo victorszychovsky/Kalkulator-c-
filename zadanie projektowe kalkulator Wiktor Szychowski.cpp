@@ -105,10 +105,20 @@ void calculator() {
     }
 }
 void provideDigits(double& x, double& y) {
-    cout << "Give your first Digit: ";
-    cin >> x;
-    cout << "Give your second Digit: ";
-    cin >> y;
+    while (true) {
+        cout << "Give your first Digit: ";
+        if (cin >> x) { 
+            cout << "Give your second Digit: ";
+            if (cin >> y) {
+                break; 
+            }
+        }
+
+      
+        cout << "Error: Please enter valid numbers!" << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+    }
 }
 
 double power(double& x, double& y) {
